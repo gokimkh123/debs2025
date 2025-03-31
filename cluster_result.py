@@ -10,7 +10,7 @@ from collections import defaultdict
 import io
 from sklearn.cluster import DBSCAN
 
-BASE_URL = "http://127.0.0.1:8866/api"
+BASE_URL = ""
 
 def create_bench(user_id, name, test=True, queries=[0], max_batches=10, limit=1):
     """벤치 생성"""
@@ -19,7 +19,7 @@ def create_bench(user_id, name, test=True, queries=[0], max_batches=10, limit=1)
         "name": name,
         "test": test,
         "queries": queries,
-        "apitoken": 'polimi-deib',
+        "apitoken": '',
     }
     if max_batches is not None:
         data["max_batches"] = max_batches
@@ -199,7 +199,7 @@ def process(batch):
 
 # 실행
 if __name__ == "__main__":
-    bench_id = create_bench(user_id="polimi-deib", name="unoptimized", max_batches=12)
+    bench_id = create_bench(user_id="", name="", max_batches=12)
     if bench_id:
         print(f"Bench created: {bench_id}")
 
